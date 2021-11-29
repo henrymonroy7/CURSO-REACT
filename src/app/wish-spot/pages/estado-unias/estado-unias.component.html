@@ -1,0 +1,77 @@
+<div class="container align-items-center justify-content-center">
+    <!--Row 0 -->
+    <div class="row justify-content-md-center">
+        <div class="col-lg-8">
+            <h2 class="mb-3">Estado de uñas</h2>
+            <br>
+        </div>
+    </div>
+
+    <!-- <div *ngIf="condition">Content to render when condition is true.</div> -->
+
+    <section>
+        <!--Row 1 -->
+        <div class="row justify-content-md-center">
+            <!--Card 1-->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="../../../../assets/img/emojis/fuerte.png" class="img-fluid" />
+                        <a (click)="funcion()">
+                            <div class="overlay overlay--light-blue">
+                                <div class="text">Fuerte</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!--Card 2-->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="../../../../assets/img/emojis/debil.png" class="img-fluid" />
+                        <a (click)="funcion()">
+                            <div class="overlay overlay--red">
+                                <div class="text">Débil</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <!--Row 2-->
+        <div class="row justify-content-md-center">
+            <!--Card 3-->
+            <div class="col-lg-4 col-md-6 mb-4" (click)="funcion()">
+                <div class="card">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="../../../../assets/img/emojis/natural.png" class="img-fluid" />
+                        <a href="#look">
+                            <div class="overlay overlay--blue">
+                                <div class="text">Natural</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!--Card 4-->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img src="../../../../assets/img/emojis/artificial.png" class="img-fluid" />
+                        <a href="#look">
+                            <div class="overlay overlay--pink">
+                                <div class="text">Artificial</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
