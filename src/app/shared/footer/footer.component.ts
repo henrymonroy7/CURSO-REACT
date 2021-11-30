@@ -1,5 +1,6 @@
 import { R3TargetBinder } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { ModalService } from 'src/app/services/modal.service';
 
 // ES6 Modules or TypeScript
 import Swal from 'sweetalert2';
@@ -16,7 +17,9 @@ export class FooterComponent implements OnInit {
 
   year= new Date().getFullYear();
 
-  constructor() { }
+  constructor(public modalService: ModalService) {
+    this.modalService.privacidad = true;
+  }
 
   ngOnInit(): void {
   }
@@ -37,7 +40,8 @@ export class FooterComponent implements OnInit {
 
   }
 
-  privacidad(){
+  privacidad() {
+    this.modalService.privacidad = true;
     $('#privacidad').modal();
   }
 
@@ -45,6 +49,13 @@ export class FooterComponent implements OnInit {
     setTimeout(() => {
       $('#privacidad').modal('hide');
     }, 300);
+  }
+
+  irAlerta() {
+    $('#privacidad').modal('hide');
+    setTimeout(() => {
+      $('#alerta').modal();
+    }, 500);
   }
 
 }
