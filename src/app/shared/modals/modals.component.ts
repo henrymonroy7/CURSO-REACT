@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { ModalService } from 'src/app/services/modal.service';
+import { NgForm } from '@angular/forms';
 
-// ES6 Modules or TypeScript
 import Swal from 'sweetalert2';
 
-declare let $:any;
+declare let $: any;
 
 @Component({
   selector: 'app-modals',
@@ -20,10 +19,9 @@ export class ModalsComponent implements OnInit {
   };
 
   usuarioLogin = {
-    nombre:'Federica',
+    nombre: 'Federica',
     password: '123'
   };
-
 
   constructor(public modalService: ModalService) {
     this.modalService.privacidadSeleccionada = true;
@@ -45,19 +43,20 @@ export class ModalsComponent implements OnInit {
 
   contactoFede(f: NgForm) {
 
-    if (f.invalid){
+    if (f.invalid) {
       $('#contacto').modal('hide');
       console.log(f.value);
-      this.limpiarMensaje();      
+      this.limpiarMensaje();
       const Toast = Swal.mixin({
         toast: true,
         position: 'center',
         showConfirmButton: false,
-        timer: 3000        
-      });      
-      Toast.fire({      
+        timer: 3000
+      });
+
+      Toast.fire({
         title: 'Todos los campos son obligatorios',
-        background: 'rgb(233, 233, 0)',
+        background: 'rgb(233,233,0)',
         icon: 'error'
       });
     } else {
@@ -68,65 +67,71 @@ export class ModalsComponent implements OnInit {
         toast: true,
         position: 'center',
         showConfirmButton: false,
-        timer: 3000        
-      });      
-      Toast.fire({      
+        timer: 3000
+      });
+
+      Toast.fire({
         title: 'Mensaje enviado correctamente',
-        background: 'rgb(233, 233, 0)',
+        background: 'rgb(233,233,0)',
         icon: 'success'
       });
-    }    
+    }
   }
 
-  limpiarMensaje(){
-    this.mensaje.email='';
-    this.mensaje.mensaje='';
+  limpiarMensaje() {
+    this.mensaje.email = '';
+    this.mensaje.mensaje = '';
   }
 
-  limpiarUsuario(){
-    this.usuarioLogin.nombre='';
-    this.usuarioLogin.password='';
+  limpiarUsuario() {
+    this.usuarioLogin.nombre = '';
+    this.usuarioLogin.password = '';
   }
 
-  salirLogin(){
+  salirLogin() {
     $('#loginModal').modal('hide');
   }
 
-  login(forma: NgForm){
+  login(forma: NgForm) {
     console.log(forma.value);
 
-    if(this.usuarioLogin.nombre === 'Federica' && this.usuarioLogin.password === '123'){
+    if (this.usuarioLogin.nombre === 'Federica' && this.usuarioLogin.password === '123') {
+      this.salirLogin();
       setTimeout(() => {
         $('.navbar-collapse').collapse('hide');
-      }, 1000); 
+      }, 1000);
       const Toast = Swal.mixin({
         toast: true,
         position: 'top',
         showConfirmButton: false,
-        timer: 3000        
-      });      
-      Toast.fire({      
-        title: 'FEDERICA ONLINE',
-        background: 'rgb(233, 233, 0)',
+        timer: 3000
+      });
+
+      Toast.fire({
+        title: 'Federica ONLINE',
+        background: 'rgb(233,233,0)',
         icon: 'success'
       });
-      this.modalService.online=true;
+      this.limpiarUsuario();
+      this.modalService.online = true;
+
     } else {
       const Toast = Swal.mixin({
         toast: true,
         position: 'top',
         showConfirmButton: false,
-        timer: 3000        
-      });      
-      Toast.fire({      
+        timer: 3000
+      });
+
+      Toast.fire({
         title: 'INVALID DATA',
-        background: 'rgb(233, 233, 0)',
+        background: 'rgb(233,233,0)',
         icon: 'error'
       });
       $('.navbar-collapse').collapse('hide');
+      this.salirLogin();
+      this.limpiarUsuario();
     }
-    this.limpiarUsuario();
-    this.salirLogin();
   }
 
 

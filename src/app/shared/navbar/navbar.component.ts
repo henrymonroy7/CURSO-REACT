@@ -1,27 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalService } from 'src/app/services/modal.service';
 
-// ES6 Modules or TypeScript
 import Swal from 'sweetalert2';
-
 declare let $: any;
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styles: [
-  ]
+  styles: []
 })
 export class NavbarComponent implements OnInit {
 
   ojo = true;
-  login1: boolean = false;
-  input1: boolean = false;
+  login1: boolean;
+  input1: boolean;
 
   clave = '';
 
-  constructor(public modalService: ModalService) { 
-    this.modalService.ojo2=true;
+  constructor(public modalService: ModalService) {
+    this.modalService.ojo2 = true;
   }
 
   ngOnInit(): void {
@@ -29,8 +26,8 @@ export class NavbarComponent implements OnInit {
 
   cerrarNavbar() {
     $('.navbar-collapse').collapse('hide');
-    this.login1=false;
-    this.input1=false;
+    this.login1 = false;
+    this.input1 = false;
   }
 
   alerta() {
@@ -49,7 +46,7 @@ export class NavbarComponent implements OnInit {
   onClick2() {
     this.ojo = true;
     this.login1 = true;
-    this.modalService.ojo2=false;
+    this.modalService.ojo2 = false;
     $(() => {
       $('[data-toggle="tooltip"]').tooltip();
     });
@@ -62,19 +59,18 @@ export class NavbarComponent implements OnInit {
       $('#focusClave').trigger('focus');
     });
     $('[data-toggle="tooltip"]').tooltip('hide');
-
   }
 
-  inputLogin(){
-    if(this.clave !== '123'){
-      this.login1=false;
-      this.input1=false;
-      this.clave='';
+  inputLogin() {
+    if (this.clave !== '123') {
+      this.login1 = false;
+      this.input1 = false;
+      this.clave = '';
       this.cerrarNavbar();
     } else {
-      this.login1=false;
-      this.input1=false;
-      this.clave='';
+      this.login1 = false;
+      this.input1 = false;
+      this.clave = '';
       this.cerrarNavbar();
       $('#loginModal').modal();
       $(document).ready(() => {
@@ -85,17 +81,19 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  logOut(){
+  logOut() {
+    this.cerrarNavbar();
     this.modalService.logOut();
     const Toast = Swal.mixin({
       toast: true,
       position: 'top',
       showConfirmButton: false,
-      timer: 3000        
-    });      
-    Toast.fire({      
-      title: 'FEDERICA OFFLINE',
-      background: 'rgb(233, 233, 0)',
+      timer: 3000
+    });
+
+    Toast.fire({
+      title: 'Federica OFFLINE',
+      background: 'rgb(233,233,0)',
       icon: 'success'
     });
   }

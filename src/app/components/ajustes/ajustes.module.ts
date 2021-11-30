@@ -6,9 +6,7 @@ import { AjustesComponent } from './ajustes.component';
 
 
 @NgModule({
-  declarations: [
-    AjustesComponent
-  ],
+  declarations: [AjustesComponent],
   imports: [
     CommonModule,
     AjustesRoutingModule

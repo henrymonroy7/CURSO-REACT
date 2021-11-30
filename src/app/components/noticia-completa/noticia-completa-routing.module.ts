@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { NoticiaCompletaComponent } from './noticia-completa.component';
 
+
 const routes: Routes = [
-  { path:'', component: NoticiaCompletaComponent} 
+  { path: '', component: NoticiaCompletaComponent },
 ];
 
 @NgModule({

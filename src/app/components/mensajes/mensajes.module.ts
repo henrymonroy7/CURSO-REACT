@@ -6,9 +6,7 @@ import { MensajesComponent } from './mensajes.component';
 
 
 @NgModule({
-  declarations: [
-    MensajesComponent
-  ],
+  declarations: [MensajesComponent],
   imports: [
     CommonModule,
     MensajesRoutingModule
